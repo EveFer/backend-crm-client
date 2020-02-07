@@ -6,9 +6,9 @@ exports.newClient = async (req, res, next) => {
     try {
         // almacenar registro
         await client.save()
-        res.json(client)
+        res.json({message: 'Se agrego correctamente el cliente', client})
     } catch (error) {
-        console.log(error)
+        res.status(400).json(error)
         next()
     }
 }
